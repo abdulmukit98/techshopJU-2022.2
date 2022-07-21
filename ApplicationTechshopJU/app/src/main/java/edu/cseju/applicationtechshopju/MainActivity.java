@@ -2,6 +2,7 @@ package edu.cseju.applicationtechshopju;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -25,6 +26,14 @@ public class MainActivity extends AppCompatActivity
         lgEdtMail = findViewById(R.id.lgEdtMail);
         lgEdtPass = findViewById(R.id.lgEdtPassword);
         lgBtnSignIn = findViewById(R.id.lgBtnSignIn);
+
+
+        lgTvCreateAcc.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(MainActivity.this, CreateAccount.class));
+            }
+        });
 
 
     }
