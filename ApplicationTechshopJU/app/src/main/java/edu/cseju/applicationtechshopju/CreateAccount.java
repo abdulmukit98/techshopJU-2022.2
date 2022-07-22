@@ -17,6 +17,7 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseAuthUserCollisionException;
 
 public class CreateAccount extends AppCompatActivity implements View.OnClickListener {
 
@@ -119,9 +120,13 @@ public class CreateAccount extends AppCompatActivity implements View.OnClickList
                 {
                     Toast.makeText(CreateAccount.this, "Registered", Toast.LENGTH_SHORT).show();
                 }
+                else if(task.getException() instanceof FirebaseAuthUserCollisionException)
+                {
+                    Toast.makeText(CreateAccount.this, "Already registered", Toast.LENGTH_SHORT).show();
+                }
                 else
                 {
-                    Toast.makeText(CreateAccount.this, "Failed", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(CreateAccount.this, "Failed" + task.getException().getMessage(), Toast.LENGTH_SHORT).show();
                 }
             }
         });
