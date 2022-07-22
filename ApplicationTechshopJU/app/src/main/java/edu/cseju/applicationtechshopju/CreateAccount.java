@@ -119,6 +119,7 @@ public class CreateAccount extends AppCompatActivity implements View.OnClickList
                 if (task.isSuccessful())
                 {
                     Toast.makeText(CreateAccount.this, "Registered", Toast.LENGTH_SHORT).show();
+                    startActivity(new Intent(getApplicationContext(), Catalog.class));
                 }
                 else if(task.getException() instanceof FirebaseAuthUserCollisionException)
                 {

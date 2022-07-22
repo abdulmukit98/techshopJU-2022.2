@@ -99,6 +99,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 if (task.isSuccessful())
                 {
                     Toast.makeText(MainActivity.this, "login", Toast.LENGTH_SHORT).show();
+                    startActivity(new Intent(getApplicationContext(), Catalog.class));
+                    finish();
                 }
                 else
                 {
