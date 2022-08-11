@@ -22,7 +22,7 @@ import com.google.firebase.auth.FirebaseAuthUserCollisionException;
 public class CreateAccount extends AppCompatActivity implements View.OnClickListener {
 
     TextView caTvLogin;
-    EditText caFullname, caGmail, caPhone, caPassword;
+    EditText caGmail, caPassword, caPassword2;
     ProgressBar caProgress;
     Button caBtnSignUp;
 
@@ -35,10 +35,9 @@ public class CreateAccount extends AppCompatActivity implements View.OnClickList
 
         caTvLogin = findViewById(R.id.caTvLogin);
         caBtnSignUp = findViewById(R.id.caBtnSignUp);
-        caFullname = findViewById(R.id.caFullName);
         caGmail = findViewById(R.id.caGmail);
-        caPhone = findViewById(R.id.caPhone);
         caPassword = findViewById(R.id.caPass);
+        caPassword2 = findViewById(R.id.caPass2);
         caProgress = findViewById(R.id.caProgress);
         caProgress.setVisibility(View.INVISIBLE);
 
@@ -63,18 +62,10 @@ public class CreateAccount extends AppCompatActivity implements View.OnClickList
     }
 
     private void registration() {
-        String fullName, gmail, password, phone;
-        fullName = caFullname.getText().toString().trim();
+        String gmail, password, password2;
         gmail = caGmail.getText().toString().trim();
         password = caPassword.getText().toString().trim();
-        phone = caPhone.getText().toString().trim();
-
-        if (fullName.isEmpty())
-        {
-            caFullname.setError("Enter User Name");
-            caFullname.requestFocus();
-            return;
-        }
+        password2 = caPassword2.getText().toString().trim();
 
         if (gmail.isEmpty())
         {
@@ -87,13 +78,6 @@ public class CreateAccount extends AppCompatActivity implements View.OnClickList
         {
             caGmail.setError("Enter valid mail");
             caGmail.requestFocus();
-            return;
-        }
-
-        if(phone.isEmpty())
-        {
-            caPhone.setError("Enter Phone");
-            caPhone.requestFocus();
             return;
         }
 
@@ -111,6 +95,20 @@ public class CreateAccount extends AppCompatActivity implements View.OnClickList
             return;
         }
 
+        if (password2.isEmpty())
+        {
+            caPassword2.setError("Retype Password");
+            caPassword2.requestFocus();
+            return;
+        }
+
+        if (!password.matches(password2))
+        {
+            caPassword2.setError("Password dont match");
+            caPassword2.requestFocus();
+            return;
+        }
+
         caProgress.setVisibility(View.VISIBLE);
         firebaseAuth.createUserWithEmailAndPassword(gmail, password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
             @Override
@@ -121,13 +119,10 @@ public class CreateAccount extends AppCompatActivity implements View.OnClickList
                     Toast.makeText(CreateAccount.this, "Registered", Toast.LENGTH_SHORT).show();
                     startActivity(new Intent(getApplicationContext(), Catalog.class));
                 }
-                else if(task.getException() instanceof FirebaseAuthUserCollisionException)
-                {
-                    Toast.makeText(CreateAccount.this, "Already registered", Toast.LENGTH_SHORT).show();
-                }
+
                 else
                 {
-                    Toast.makeText(CreateAccount.this, "Failed" + task.getException().getMessage(), Toast.LENGTH_SHORT).show();
+                    Toast.makeText(CreateAccount.this, task.getException().getMessage(), Toast.LENGTH_SHORT).show();
                 }
             }
         });
