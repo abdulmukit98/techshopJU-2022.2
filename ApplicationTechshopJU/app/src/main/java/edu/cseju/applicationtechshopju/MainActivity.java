@@ -98,8 +98,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 lgProgress.setVisibility(View.INVISIBLE);
                 if (task.isSuccessful())
                 {
-                    Toast.makeText(MainActivity.this, "login", Toast.LENGTH_SHORT).show();
-                    startActivity(new Intent(getApplicationContext(), Catalog.class));
+                    if (email.matches("mdabdulmukit98@gmail.com"))
+                    {
+                        startActivity(new Intent(getApplicationContext(), Admin.class));
+                    }
+                    else
+                    {
+                        startActivity(new Intent(getApplicationContext(), Catalog.class));
+                    }
                     finish();
                 }
                 else
