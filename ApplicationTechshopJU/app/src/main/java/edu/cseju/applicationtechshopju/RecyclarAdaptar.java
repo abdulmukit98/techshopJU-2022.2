@@ -30,7 +30,7 @@ public class RecyclarAdaptar extends RecyclerView.Adapter<RecycalrViewHolder> {
         LayoutInflater layoutInflater = LayoutInflater.from(context);
         View view = layoutInflater.inflate(R.layout.recyclar_item, parent, false);
 
-        RecycalrViewHolder recycalrViewHolder = new RecycalrViewHolder(view);
+        RecycalrViewHolder recycalrViewHolder = new RecycalrViewHolder(view, productList);
         return recycalrViewHolder;
     }
 
