@@ -12,6 +12,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.ApplicationTechshopJU">
         <activity
+            android:name=".OrderProduct"
+            android:exported="false" />
+        <activity
+            android:name=".DetailsView"
+            android:exported="false" />
+        <activity
             android:name=".Admin"
             android:exported="false" />
         <activity

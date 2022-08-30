@@ -1,6 +1,7 @@
 package edu.cseju.applicationtechshopju;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -41,7 +42,13 @@ public class RecycalrViewHolder extends RecyclerView.ViewHolder implements View.
 
     @Override
     public void onClick(View view) {
-        Toast.makeText(context, ""+productList.get(getAdapterPosition()).productName, Toast.LENGTH_SHORT).show();
+
+        Product product = productList.get(getAdapterPosition());
+        Intent intent = new Intent(context, DetailsView.class);
+        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        intent.putExtra("data", product);
+        context.startActivity(intent);
+
     }
 
 
