@@ -15,9 +15,9 @@ If the user logs in to the customer account he is navigated to the catalogue pag
 
 ## Features
 
-| Login Page | Admin Page | Catelog |
-|------------|------------|---------|
-| <img src="https://github.com/abdulmukit98/techshopJU-2022.2/assets/56398175/2fe2d809-3e5d-476e-9c62-d2b9ae8d34e7" width=250 height=500/> | <img src="https://github.com/abdulmukit98/techshopJU-2022.2/assets/56398175/74c27444-d9a2-464b-b174-4abe71c6ed6d" width=250 height=500/> | <img src="https://github.com/abdulmukit98/techshopJU-2022.2/assets/56398175/85a237e0-81f1-4300-95f4-92dfdf9c8ebb" width=250 height=500/> |
+|Login Page|Admin Page|Catelog|
+|----------|----------|-------|
+|<img src="https://github.com/abdulmukit98/techshopJU-2022.2/assets/56398175/2fe2d809-3e5d-476e-9c62-d2b9ae8d34e7" width=250 height=500/>|<img src="https://github.com/abdulmukit98/techshopJU-2022.2/assets/56398175/74c27444-d9a2-464b-b174-4abe71c6ed6d" width=250 height=500/>|<img src="https://github.com/abdulmukit98/techshopJU-2022.2/assets/56398175/85a237e0-81f1-4300-95f4-92dfdf9c8ebb" width=250 height=500/>|
 | Product Details | Order Page | . |
 | <img src="https://github.com/abdulmukit98/techshopJU-2022.2/assets/56398175/1e4ed5e7-47f7-4363-88c2-4a7b895ac4bf" width=250 height=500/> | <img src="https://github.com/abdulmukit98/techshopJU-2022.2/assets/56398175/1ab6261d-9893-4faa-bc68-cfb6b0e241c5" width=250 height=500/> | . |
 
